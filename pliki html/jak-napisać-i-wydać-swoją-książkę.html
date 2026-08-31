@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jak napisać i wydać swoją książkę – E-book</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#0b1020;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    padding:25px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#7c5cff;
+}
+
+.back{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.back:hover{
+    color:#7c5cff;
+}
+
+/* GŁÓWNY KONTENER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 10%;
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:60px;
+}
+
+/* OKŁADKA */
+
+.ebook-cover{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    display:block;
+}
+
+/* TEKST */
+
+section{
+    margin-top:45px;
+}
+
+section h1{
+    font-size:42px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+section h2{
+    font-size:28px;
+    margin-bottom:18px;
+    color:#ffffff;
+}
+
+section p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* LISTA */
+
+ul{
+    margin-top:20px;
+    padding-left:0;
+    list-style:none;
+}
+
+li{
+    margin:14px 0;
+    padding:13px 16px;
+    background:#141d36;
+    border-radius:10px;
+    color:#e2e8f0;
+    transition:.3s;
+}
+
+li:hover{
+    transform:translateX(5px);
+    background:#1b2745;
+}
+
+li::first-letter{
+    color:#7c5cff;
+}
+
+/* BOX INFORMACYJNE */
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.info-box{
+    background:#141d36;
+    padding:22px 15px;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid rgba(124,92,255,.15);
+}
+
+.info-box strong{
+    display:block;
+    font-size:21px;
+    color:#7c5cff;
+    margin-bottom:7px;
+}
+
+/* PRAWA KOLUMNA */
+
+.price-box{
+    background:#141d36;
+    padding:30px;
+    border-radius:20px;
+    position:sticky;
+    top:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    border:1px solid rgba(124,92,255,.15);
+}
+
+.price-box h2{
+    font-size:24px;
+}
+
+.price{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+}
+
+.old-price{
+    color:#9298aa;
+    font-size:22px;
+    text-decoration:line-through;
+    font-weight:500;
+}
+
+.new-price{
+    color:#7c5cff;
+    font-size:45px;
+    font-weight:bold;
+}
+
+.price-box p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* PRZYCISK */
+
+.btn{
+    display:block;
+    text-align:center;
+    background:#7c5cff;
+    color:white;
+    text-decoration:none;
+    padding:18px;
+    border-radius:40px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 25px rgba(124,92,255,.7);
+}
+
+/* PODGLĄD */
+
+.preview-btn{
+    display:block;
+    margin-top:20px;
+    padding:15px 28px;
+    border-radius:30px;
+    background:transparent;
+    border:2px solid #7c5cff;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.preview-btn:hover{
+    background:#7c5cff;
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(124,92,255,.5);
+}
+
+/* CHECKLISTA */
+
+.benefits{
+    margin-top:20px;
+}
+
+.benefit{
+    margin:13px 0;
+    color:#e2e8f0;
+}
+
+/* INFORMACJA */
+
+.highlight{
+    margin-top:25px;
+    padding:22px;
+    background:linear-gradient(
+        135deg,
+        rgba(124,92,255,.15),
+        rgba(124,92,255,.05)
+    );
+    border-left:4px solid #7c5cff;
+    border-radius:10px;
+    color:#dbeafe;
+    line-height:1.7;
+}
+
+/* RESPONSYWNOŚĆ */
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+        padding:50px 6%;
+    }
+
+    .price-box{
+        position:relative;
+        top:auto;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    section h1{
+        font-size:34px;
+    }
+
+    header{
+        padding:20px 6%;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:22px;
+    }
+
+    .back{
+        font-size:14px;
+    }
+
+    .container{
+        padding:35px 5%;
+    }
+
+    section h1{
+        font-size:30px;
+    }
+
+    .price{
+        font-size:38px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">Autorskie Słowa</div>
+
+    <a href="../index.html" class="back">
+        ← Powrót
+    </a>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ===================================== -->
+<!-- LEWA STRONA -->
+<!-- ===================================== -->
+
+<div>
+
+    <!-- OKŁADKA -->
+    <img
+        class="ebook-cover"
+        src="../obrazy/napisać-i-wydać-książkę.png"
+        alt="E-book Jak napisać i wydać swoją książkę"
+    >
+
+
+    <!-- OPIS -->
+
+    <section>
+
+        <h1>
+            Jak napisać i wydać swoją książkę
+        </h1>
+
+        <p>
+
+            Praktyczny e-book dla osób, które marzą o napisaniu
+            własnej książki, ale nie wiedzą, od czego zacząć.
+
+            Dowiesz się, jak przejść od pierwszego pomysłu,
+            przez pisanie i redakcję, aż do przygotowania książki
+            do publikacji i sprzedaży.
+
+        </p>
+
+        <div class="highlight">
+
+            📚 <strong>Od pomysłu do gotowej książki.</strong>
+
+            Poznaj cały proces tworzenia książki krok po kroku —
+            od pierwszej strony aż po publikację własnego tytułu.
+
+        </div>
+
+    </section>
+
+
+    <!-- CZEGO SIĘ NAUCZYSZ -->
+
+    <section>
+
+        <h2>
+            Czego dowiesz się z e-booka?
+        </h2>
+
+        <ul>
+
+            <li>✍️ Jak znaleźć pomysł na własną książkę</li>
+
+            <li>📝 Jak rozpocząć pisanie i stworzyć pierwsze rozdziały</li>
+
+            <li>📖 Jak zaplanować fabułę i strukturę książki</li>
+
+            <li>🧩 Jak tworzyć bohaterów i interesującą historię</li>
+
+            <li>🔍 Jak poprawić i zredagować własny tekst</li>
+
+            <li>✅ Jak przygotować książkę do publikacji</li>
+
+            <li>🎨 Jak stworzyć profesjonalną okładkę</li>
+
+            <li>📄 Jak przygotować plik książki do sprzedaży</li>
+
+            <li>🏷️ Jak wybrać tytuł, opis i kategorię książki</li>
+
+            <li>💰 Jak ustalić cenę własnej publikacji</li>
+
+            <li>🌐 Jak wydać książkę samodzielnie</li>
+
+            <li>📢 Jak promować swoją książkę i dotrzeć do czytelników</li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- DLA KOGO -->
+
+    <section>
+
+        <h2>
+            Dla kogo jest ten e-book?
+        </h2>
+
+        <p>
+
+            ✔ początkujących autorów
+
+            <br><br>
+
+            ✔ osób, które mają pomysł na książkę
+
+            <br><br>
+
+            ✔ osób, które chcą napisać swoją pierwszą powieść
+
+            <br><br>
+
+            ✔ autorów zainteresowanych self-publishingiem
+
+            <br><br>
+
+            ✔ osób, które chcą samodzielnie wydać i sprzedawać książkę
+
+            <br><br>
+
+            ✔ osób, które nie wiedzą, jak wygląda proces wydawniczy
+
+        </p>
+
+    </section>
+
+
+    <!-- CO OTRZYMASZ -->
+
+    <section>
+
+        <h2>
+            Co otrzymasz?
+        </h2>
+
+        <div class="info">
+
+            <div class="info-box">
+
+                <strong>PDF</strong>
+
+                Gotowy e-book
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>24/7</strong>
+
+                Dostęp do pliku
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>📱💻</strong>
+
+                Czytaj na dowolnym urządzeniu
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TEMATY -->
+
+    <section>
+
+        <h2>
+            Od pomysłu do publikacji
+        </h2>
+
+        <p>
+
+            E-book prowadzi Cię przez najważniejsze etapy
+            tworzenia własnej książki.
+
+            Dowiesz się nie tylko, jak pisać, ale również
+            jak przygotować tekst, zadbać o wygląd publikacji
+            i rozpocząć jej sprzedaż.
+
+        </p>
+
+    </section>
+
+
+</div>
+
+
+<!-- ===================================== -->
+<!-- PRAWA STRONA -->
+<!-- ===================================== -->
+
+<div>
+
+    <div class="price-box">
+
+        <h2>
+            Jak napisać i wydać swoją książkę
+        </h2>
+
+        <div class="price">
+            <span class="old-price">19,99 zł</span>
+            <span class="new-price">9,99 zł</span>
+        </div>
+
+
+        <p>
+
+            Praktyczny e-book PDF dla początkujących
+            autorów i osób zainteresowanych self-publishingiem.
+
+        </p>
+
+
+        <br>
+
+
+        <a
+            class="btn"
+            href="https://www.naffy.io/cosmo_inc/jak-napisac-i-wydac-swoja-ksiazke-mct"
+        >
+            📚 Kup e-book
+        </a>
+
+
+        <div class="benefits">
+
+            <div class="benefit">
+                ✅ E-book w formacie PDF
+            </div>
+
+            <div class="benefit">
+                ✅ Dostęp do pliku po zakupie
+            </div>
+
+            <div class="benefit">
+                ✅ Możliwość czytania na komputerze
+            </div>
+
+            <div class="benefit">
+                ✅ Możliwość czytania na telefonie
+            </div>
+
+            <div class="benefit">
+                ✅ Możliwość czytania na tablecie
+            </div>
+
+            <div class="benefit">
+                ✅ Praktyczne wskazówki
+            </div>
+
+            <div class="benefit">
+                ✅ Informacje o self-publishingu
+            </div>
+
+        </div>
+
+
+        <!-- PODGLĄD PDF -->
+
+        <a
+            href="../podląd/Jak_napisac_i_wydac_swoja_ksiazke.pdf"
+            target="_blank"
+            class="preview-btn"
+        >
+            📖 Otwórz podgląd PDF
+        </a>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</body>
+</html>

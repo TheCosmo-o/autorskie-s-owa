@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blask twych oczu – książka</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#0b1020;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    padding:25px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#7c5cff;
+}
+
+.back{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.back:hover{
+    color:#7c5cff;
+}
+
+
+/* GŁÓWNY KONTENER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 10%;
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:60px;
+}
+
+
+/* OKŁADKA */
+
+.ebook-cover{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    display:block;
+}
+
+
+/* SEKCJE */
+
+section{
+    margin-top:45px;
+}
+
+section h1{
+    font-size:42px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+section h2{
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+section p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:16px;
+}
+
+
+/* WYRÓŻNIENIE */
+
+.highlight{
+    margin-top:25px;
+    padding:22px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(124,92,255,.15),
+        rgba(124,92,255,.05)
+    );
+
+    border-left:4px solid #7c5cff;
+    border-radius:10px;
+
+    color:#dbeafe;
+    line-height:1.7;
+}
+
+
+/* LISTA */
+
+ul{
+    margin-top:20px;
+    padding-left:0;
+    list-style:none;
+}
+
+li{
+    margin:14px 0;
+    padding:13px 16px;
+
+    background:#141d36;
+
+    border-radius:10px;
+
+    color:#e2e8f0;
+
+    transition:.3s;
+}
+
+li:hover{
+    transform:translateX(5px);
+    background:#1b2745;
+}
+
+
+/* INFO BOX */
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.info-box{
+    background:#141d36;
+    padding:22px 15px;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid rgba(124,92,255,.15);
+}
+
+.info-box strong{
+    display:block;
+    font-size:21px;
+    color:#7c5cff;
+    margin-bottom:7px;
+}
+
+
+/* PRAWA KOLUMNA */
+
+.price-box{
+    background:#141d36;
+    padding:30px;
+    border-radius:20px;
+
+    position:sticky;
+    top:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+    border:1px solid rgba(124,92,255,.15);
+}
+
+.price-box h2{
+    font-size:24px;
+}
+
+.price{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+}
+
+.old-price{
+    color:#9298aa;
+    font-size:22px;
+    text-decoration:line-through;
+    font-weight:500;
+}
+
+.new-price{
+    color:#7c5cff;
+    font-size:45px;
+    font-weight:bold;
+}
+
+.price-box p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+
+/* PRZYCISK */
+
+.btn{
+    display:block;
+
+    text-align:center;
+
+    background:#7c5cff;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 25px rgba(124,92,255,.7);
+}
+
+
+/* KORZYŚCI */
+
+.benefits{
+    margin-top:20px;
+}
+
+.benefit{
+    margin:13px 0;
+    color:#e2e8f0;
+}
+
+
+/* PODGLĄD */
+
+.preview-btn{
+    display:block;
+
+    margin-top:20px;
+
+    padding:15px 28px;
+
+    border-radius:30px;
+
+    background:transparent;
+
+    border:2px solid #7c5cff;
+
+    color:white;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.preview-btn:hover{
+    background:#7c5cff;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(124,92,255,.5);
+}
+
+
+/* RESPONSYWNOŚĆ */
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+        padding:50px 6%;
+    }
+
+    .price-box{
+        position:relative;
+        top:auto;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    section h1{
+        font-size:34px;
+    }
+
+    header{
+        padding:20px 6%;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:22px;
+    }
+
+    .back{
+        font-size:14px;
+    }
+
+    .container{
+        padding:35px 5%;
+    }
+
+    section h1{
+        font-size:30px;
+    }
+
+    .price{
+        font-size:38px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        Autorskie Słowa
+    </div>
+
+    <a href="../index.html" class="back">
+        ← Powrót
+    </a>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- ================================= -->
+<!-- LEWA STRONA -->
+<!-- ================================= -->
+
+<div>
+
+
+    <!-- OKŁADKA -->
+
+    <img
+        class="ebook-cover"
+        src="../obrazy/blask-twych-oczu.png"
+        alt="Okładka książki Blask twych oczu"
+    >
+
+
+
+    <!-- OPIS -->
+
+    <section>
+
+        <h1>
+            Blask twych oczu
+        </h1>
+
+
+        <p>
+
+            „Blask twych oczu” to historia Kamila, który po trudnym
+            rozstaniu zmaga się z kryzysem psychicznym, ale dzięki
+            poznaniu Bartosza stopniowo odzyskuje nadzieję,
+            pewność siebie i wiarę w przyszłość.
+
+            To opowieść o miłości, dojrzewaniu, zdrowieniu
+            i walce o własne marzenia.
+
+        </p>
+
+
+        <div class="highlight">
+
+            ✨ <strong>Niektóre spojrzenia potrafią powiedzieć więcej niż tysiąc słów.</strong>
+
+            To historia o tym, że nawet po bardzo trudnych chwilach
+            można zrobić kolejny krok i zacząć budować swoje życie
+            od nowa.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- O KSIĄŻCE -->
+
+    <section>
+
+        <h2>
+            O czym jest książka?
+        </h2>
+
+
+        <p>
+
+            „Blask twych oczu” opowiada o Kamilu, który po rozstaniu
+            przechodzi przez trudny kryzys i musi zmierzyć się
+            z własnymi lękami oraz poczuciem beznadziei.
+
+            Ważną częścią historii jest jego relacja z Bartoszem,
+            która z czasem przeradza się w miłość. Kamil nadal
+            musi jednak pracować nad sobą i uczyć się przyjmować
+            pomoc.
+
+            To historia o dojrzewaniu, zdrowieniu, odzyskiwaniu
+            wiary w siebie oraz budowaniu własnej przyszłości.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- CZEGO MOŻESZ SIĘ SPODZIEWAĆ -->
+
+    <section>
+
+        <h2>
+            Czego możesz spodziewać się w książce?
+        </h2>
+
+
+        <ul>
+
+            <li>
+                ✨ Historii o walce z własnymi lękami
+            </li>
+
+            <li>
+                ❤️ Relacji Kamila i Bartosza
+            </li>
+
+            <li>
+                🧠 Tematu kryzysu psychicznego i zdrowienia
+            </li>
+
+            <li>
+                🌱 Przemiany i odzyskiwania wiary w siebie
+            </li>
+
+            <li>
+                💭 Wewnętrznych przeżyć i trudnych emocji
+            </li>
+
+            <li>
+                🤝 Wsparcia oraz uczenia się przyjmowania pomocy
+            </li>
+
+            <li>
+                💫 Miłości i bliskości
+            </li>
+
+            <li>
+                🎯 Walki o własne marzenia
+            </li>
+
+            <li>
+                📖 Wciągającej historii o dojrzewaniu
+            </li>
+
+            <li>
+                ❤️‍🩹 Trudnych momentów i nadziei na lepszą przyszłość
+            </li>
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- DLA KOGO -->
+
+    <section>
+
+        <h2>
+            Dla kogo jest ta książka?
+        </h2>
+
+
+        <p>
+
+            ✔ dla osób, które lubią historie o miłości i dojrzewaniu
+
+            <br><br>
+
+            ✔ dla czytelników zainteresowanych tematyką zdrowienia i pokonywania kryzysów
+
+            <br><br>
+
+            ✔ dla osób, które cenią realistyczne emocje i relacje między bohaterami
+
+            <br><br>
+
+            ✔ dla czytelników, którzy lubią historie o drugiej szansie i nadziei
+
+            <br><br>
+
+            ✔ dla osób, które lubią bohaterów przechodzących wyraźną przemianę
+
+            <br><br>
+
+            ✔ dla każdego, kto chce przeczytać historię o miłości, wsparciu i walce o przyszłość
+
+        </p>
+
+    </section>
+
+
+
+    <!-- CO OTRZYMASZ -->
+
+    <section>
+
+        <h2>
+            Co otrzymasz?
+        </h2>
+
+
+        <div class="info">
+
+
+            <div class="info-box">
+
+                <strong>PDF</strong>
+
+                Książka w formacie PDF
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>24/7</strong>
+
+                Dostęp do książki
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>💻📱</strong>
+
+                Komputer, telefon i tablet
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- HISTORIA -->
+
+    <section>
+
+        <h2>
+            Historia, która zostaje w pamięci
+        </h2>
+
+
+        <p>
+
+            Niektóre historie zaczynają się od momentu, w którym
+            wszystko wydaje się stracone.
+
+            „Blask twych oczu” pokazuje drogę Kamila od
+            kryzysu i poczucia beznadziei do odzyskania
+            nadziei, miłości i własnych planów na przyszłość.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- EMOCJE -->
+
+    <section>
+
+        <h2>
+            Poczuj emocje razem z bohaterami
+        </h2>
+
+
+        <p>
+
+            Pozwól sobie zatrzymać na chwilę,
+            odłożyć codzienność i wejść do świata
+            przedstawionego w powieści.
+
+            Poznaj Kamila, jego lęki, marzenia i trudną drogę
+            do odzyskania równowagi. Towarzysz mu w relacji
+            z Bartoszem, która staje się ważną częścią
+            jego nowego życia.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- NAJWAŻNIEJSZE -->
+
+    <section>
+
+        <h2>
+            Czasem jedno spojrzenie wystarczy
+        </h2>
+
+
+        <div class="highlight">
+
+            ✨ <strong>„Blask twych oczu”</strong>
+
+            to historia o tym, że po trudnych doświadczeniach
+            można nauczyć się ufać drugiej osobie,
+            przyjmować pomoc i ponownie uwierzyć w siebie.
+
+            Czasem najważniejszy jest po prostu kolejny krok.
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- PRAWA STRONA -->
+<!-- ================================= -->
+
+<div>
+
+
+    <div class="price-box">
+
+
+        <h2>
+            Blask twych oczu
+        </h2>
+
+
+        <div class="price">
+            <span class="old-price">20 zł</span>
+            <span class="new-price">10 zł</span>
+        </div>
+
+
+        <p>
+
+            Historia Kamila o kryzysie, miłości, zdrowieniu
+            i odzyskiwaniu wiary w przyszłość.
+
+        </p>
+
+
+        <br>
+
+
+        <a
+            class="btn"
+            href="https://www.naffy.io/cosmo_inc/blask-twych-oczu-vpa"
+        >
+            ✨ Kup książkę
+        </a>
+
+
+
+        <div class="benefits">
+
+
+            <div class="benefit">
+                ✅ Książka w formacie PDF
+            </div>
+
+
+            <div class="benefit">
+                ✅ Dostęp do pliku po zakupie
+            </div>
+
+
+            <div class="benefit">
+                ✅ Możliwość czytania na komputerze
+            </div>
+
+
+            <div class="benefit">
+                ✅ Możliwość czytania na telefonie
+            </div>
+
+
+            <div class="benefit">
+                ✅ Możliwość czytania na tablecie
+            </div>
+
+
+            <div class="benefit">
+                ✅ Emocjonalna historia
+            </div>
+
+
+            <div class="benefit">
+                ✅ Wciągająca fabuła
+            </div>
+
+
+            <div class="benefit">
+                ✅ Nastrojowy klimat powieści
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PODGLĄD PDF -->
+
+        <a
+            href="../podląd/Blask Twych Oczu.pdf"
+            target="_blank"
+            class="preview-btn"
+        >
+            📖 Otwórz podgląd książki
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>

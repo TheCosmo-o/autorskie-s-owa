@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bezpieczeństwo w sieci – jak chronić swoje dane</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#0b1020;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    padding:25px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#7c5cff;
+}
+
+.back{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.back:hover{
+    color:#7c5cff;
+}
+
+
+/* GŁÓWNY KONTENER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 10%;
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:60px;
+}
+
+
+/* OKŁADKA */
+
+.ebook-cover{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    display:block;
+}
+
+
+/* SEKCJE */
+
+section{
+    margin-top:45px;
+}
+
+section h1{
+    font-size:42px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+section h2{
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+section p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:16px;
+}
+
+
+/* WYRÓŻNIENIE */
+
+.highlight{
+    margin-top:25px;
+    padding:22px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(124,92,255,.15),
+        rgba(124,92,255,.05)
+    );
+
+    border-left:4px solid #7c5cff;
+    border-radius:10px;
+
+    color:#dbeafe;
+    line-height:1.7;
+}
+
+
+/* LISTA */
+
+ul{
+    margin-top:20px;
+    padding-left:0;
+    list-style:none;
+}
+
+li{
+    margin:14px 0;
+    padding:13px 16px;
+
+    background:#141d36;
+
+    border-radius:10px;
+
+    color:#e2e8f0;
+
+    transition:.3s;
+}
+
+li:hover{
+    transform:translateX(5px);
+    background:#1b2745;
+}
+
+
+/* INFO BOX */
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.info-box{
+    background:#141d36;
+    padding:22px 15px;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid rgba(124,92,255,.15);
+}
+
+.info-box strong{
+    display:block;
+    font-size:21px;
+    color:#7c5cff;
+    margin-bottom:7px;
+}
+
+
+/* PRAWA KOLUMNA */
+
+.price-box{
+    background:#141d36;
+    padding:30px;
+    border-radius:20px;
+
+    position:sticky;
+    top:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+    border:1px solid rgba(124,92,255,.15);
+}
+
+.price-box h2{
+    font-size:24px;
+}
+
+.price{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+}
+
+.old-price{
+    color:#9298aa;
+    font-size:22px;
+    text-decoration:line-through;
+    font-weight:500;
+}
+
+.new-price{
+    color:#7c5cff;
+    font-size:45px;
+    font-weight:bold;
+}
+.price-box p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+
+/* PRZYCISK */
+
+.btn{
+    display:block;
+
+    text-align:center;
+
+    background:#7c5cff;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 25px rgba(124,92,255,.7);
+}
+
+
+/* KORZYŚCI */
+
+.benefits{
+    margin-top:20px;
+}
+
+.benefit{
+    margin:13px 0;
+    color:#e2e8f0;
+}
+
+
+/* PODGLĄD */
+
+.preview-btn{
+    display:block;
+
+    margin-top:20px;
+
+    padding:15px 28px;
+
+    border-radius:30px;
+
+    background:transparent;
+
+    border:2px solid #7c5cff;
+
+    color:white;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.preview-btn:hover{
+    background:#7c5cff;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(124,92,255,.5);
+}
+
+
+/* RESPONSYWNOŚĆ */
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+        padding:50px 6%;
+    }
+
+    .price-box{
+        position:relative;
+        top:auto;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    section h1{
+        font-size:34px;
+    }
+
+    header{
+        padding:20px 6%;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:22px;
+    }
+
+    .back{
+        font-size:14px;
+    }
+
+    .container{
+        padding:35px 5%;
+    }
+
+    section h1{
+        font-size:30px;
+    }
+
+    .price{
+        font-size:38px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        Autorskie Słowa
+    </div>
+
+    <a href="../index.html" class="back">
+        ← Powrót
+    </a>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- ================================= -->
+<!-- LEWA STRONA -->
+<!-- ================================= -->
+
+<div>
+
+
+    <!-- OKŁADKA -->
+
+    <img
+        class="ebook-cover"
+        src="../obrazy/bezpieczeństwo-w-sieci.png"
+        alt="E-book Bezpieczeństwo w sieci – jak chronić swoje dane"
+    >
+
+
+
+    <!-- OPIS -->
+
+    <section>
+
+        <h1>
+            Bezpieczeństwo w sieci – jak chronić swoje dane
+        </h1>
+
+
+        <p>
+
+            Praktyczny poradnik dla osób, które chcą bezpiecznie
+            korzystać z internetu, chronić swoje dane osobowe
+            i unikać najczęstszych zagrożeń w sieci.
+
+            Materiał został przygotowany z myślą o początkujących
+            i krok po kroku pokazuje, jak zwiększyć swoje
+            bezpieczeństwo podczas korzystania z internetu.
+
+        </p>
+
+
+        <div class="highlight">
+
+            🔐 <strong>Zadbaj o swoje bezpieczeństwo w internecie.</strong>
+
+            Dowiedz się, jak chronić hasła, dane osobowe,
+            konta internetowe oraz urządzenia przed
+            najczęstszymi zagrożeniami.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CZEGO SIĘ NAUCZYSZ -->
+
+    <section>
+
+        <h2>
+            Czego dowiesz się z poradnika?
+        </h2>
+
+
+        <ul>
+
+            <li>
+                🔐 Jak tworzyć silne i bezpieczne hasła
+            </li>
+
+            <li>
+                🛡️ Jak chronić swoje dane osobowe
+            </li>
+
+            <li>
+                🎣 Jak rozpoznawać phishing i fałszywe wiadomości
+            </li>
+
+            <li>
+                📧 Jak bezpiecznie korzystać z poczty elektronicznej
+            </li>
+
+            <li>
+                🌐 Jak bezpiecznie korzystać z internetu
+            </li>
+
+            <li>
+                📱 Jak zabezpieczyć telefon i komputer
+            </li>
+
+            <li>
+                🔑 Dlaczego warto korzystać z uwierzytelniania dwuskładnikowego
+            </li>
+
+            <li>
+                🚨 Jak rozpoznać próbę oszustwa w internecie
+            </li>
+
+            <li>
+                📲 Jak bezpiecznie korzystać z mediów społecznościowych
+            </li>
+
+            <li>
+                💳 Jak bezpiecznie robić zakupy i płacić online
+            </li>
+
+            <li>
+                ☁️ Jak chronić pliki i dane przechowywane w chmurze
+            </li>
+
+            <li>
+                🔄 Dlaczego aktualizacje urządzeń są tak ważne
+            </li>
+
+            <li>
+                🦠 Jak ograniczyć ryzyko złośliwego oprogramowania
+            </li>
+
+            <li>
+                📶 Jak bezpiecznie korzystać z publicznych sieci Wi-Fi
+            </li>
+
+            <li>
+                🕵️ Jak chronić swoją prywatność w internecie
+            </li>
+
+            <li>
+                ✅ Jak stworzyć własną checklistę bezpieczeństwa
+            </li>
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- DLA KOGO -->
+
+    <section>
+
+        <h2>
+            Dla kogo jest ten poradnik?
+        </h2>
+
+
+        <p>
+
+            ✔ osób, które chcą bezpieczniej korzystać z internetu
+
+            <br><br>
+
+            ✔ uczniów i studentów
+
+            <br><br>
+
+            ✔ osób korzystających z bankowości internetowej
+
+            <br><br>
+
+            ✔ osób aktywnych w mediach społecznościowych
+
+            <br><br>
+
+            ✔ rodziców chcących lepiej chronić swoje dane i urządzenia
+
+            <br><br>
+
+            ✔ osób, które nie mają dużej wiedzy technicznej
+
+            <br><br>
+
+            ✔ każdego, kto chce zwiększyć swoją świadomość zagrożeń w sieci
+
+        </p>
+
+    </section>
+
+
+
+    <!-- CO OTRZYMASZ -->
+
+    <section>
+
+        <h2>
+            Co otrzymasz?
+        </h2>
+
+
+        <div class="info">
+
+
+            <div class="info-box">
+
+                <strong>PDF</strong>
+
+                Gotowy poradnik
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>24/7</strong>
+
+                Dostęp do pliku
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>💻📱</strong>
+
+                Komputer, telefon i tablet
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PRAKTYCZNA WIEDZA -->
+
+    <section>
+
+        <h2>
+            Praktyczna wiedza zamiast skomplikowanej teorii
+        </h2>
+
+
+        <p>
+
+            Poradnik skupia się na sytuacjach, z którymi możesz
+            spotkać się każdego dnia.
+
+            Dowiesz się, na co zwracać uwagę podczas korzystania
+            z poczty, bankowości internetowej, mediów społecznościowych,
+            zakupów online oraz publicznych sieci Wi-Fi.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- OD PODSTAW -->
+
+    <section>
+
+        <h2>
+            Od podstaw do bezpieczniejszych nawyków
+        </h2>
+
+
+        <p>
+
+            Nie musisz być ekspertem od informatyki.
+
+            Materiał został przygotowany w prosty i przystępny sposób,
+            dzięki czemu możesz rozpocząć naukę od podstaw i stopniowo
+            wprowadzać lepsze zasady bezpieczeństwa do codziennego
+            korzystania z internetu.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- NAJWAŻNIEJSZA ZASADA -->
+
+    <section>
+
+        <h2>
+            Pamiętaj: bezpieczeństwo zaczyna się od Ciebie
+        </h2>
+
+
+        <div class="highlight">
+
+            🔒 Silne hasła, ostrożność wobec podejrzanych wiadomości,
+            aktualne oprogramowanie i świadome udostępnianie danych
+            mogą znacząco zwiększyć Twoje bezpieczeństwo w sieci.
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- PRAWA STRONA -->
+<!-- ================================= -->
+
+<div>
+
+
+    <div class="price-box">
+
+
+        <h2>
+            Bezpieczeństwo w sieci
+        </h2>
+
+
+        <div class="price">
+            <span class="old-price">19,99 zł</span>
+            <span class="new-price">9,99 zł</span>
+        </div>
+
+
+        <p>
+
+            Praktyczny poradnik PDF dla osób,
+            które chcą lepiej chronić swoje dane
+            i bezpieczniej korzystać z internetu.
+
+        </p>
+
+
+        <br>
+
+
+        <a
+            class="btn"
+            href="http://naffy.io/cosmo_inc/bezpiecznie-w-sieci-jak-chronic-swoje-dane-thj"
+        >
+            🔐 Kup poradnik
+        </a>
+
+
+
+        <div class="benefits">
+
+
+            <div class="benefit">
+                ✅ Poradnik w formacie PDF
+            </div>
+
+
+            <div class="benefit">
+                ✅ Dostęp do pliku po zakupie
+            </div>
+
+
+            <div class="benefit">
+                ✅ Możliwość czytania na komputerze
+            </div>
+
+
+            <div class="benefit">
+                ✅ Możliwość czytania na telefonie
+            </div>
+
+
+            <div class="benefit">
+                ✅ Możliwość czytania na tablecie
+            </div>
+
+
+            <div class="benefit">
+                ✅ Praktyczne wskazówki dotyczące bezpieczeństwa
+            </div>
+
+
+            <div class="benefit">
+                ✅ Materiał dla początkujących
+            </div>
+
+
+            <div class="benefit">
+                ✅ Prosty i przystępny język
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PODGLĄD PDF -->
+
+        <a
+            href="../podląd/Bezpiecznie_w_sieci - jak chronić swoje dane.pdf"
+            target="_blank"
+            class="preview-btn"
+        >
+            📖 Otwórz podgląd PDF
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>
